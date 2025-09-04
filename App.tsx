@@ -4,6 +4,7 @@ import ContentDisplay from './components/ContentDisplay';
 import DynamicBackground from './components/DynamicBackground';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import RoiCalculator from './components/RoiCalculator';
 import {
   PositioningIcon,
   FeaturesIcon,
@@ -55,6 +56,19 @@ const knowledgeBaseData: KnowledgeBase = [
         ],
       },
     ],
+  },
+   {
+    id: 'sec_calculator',
+    title: 'Калькулятор ROI',
+    icon: PricingIcon,
+    pages: [
+        {
+            id: 'page_roi_calculator_horeca',
+            title: 'ROI для HoReCa',
+            content: [],
+            component: RoiCalculator,
+        }
+    ]
   },
   {
     id: 'sec_features',
@@ -349,7 +363,7 @@ const App: React.FC = () => {
       <DynamicBackground />
       <Header />
       <div className="relative z-10 max-w-screen-2xl mx-auto pt-16">
-        <main className="flex">
+        <main className="flex flex-col md:flex-row">
           <Sidebar 
             knowledgeBase={knowledgeBaseData} 
             selectedPageId={selectedPageId}

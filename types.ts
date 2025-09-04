@@ -9,6 +9,7 @@ export interface Page {
   id: string;
   title: string;
   content: ContentBlock[];
+  component?: React.FC;
 }
 
 export interface Section {

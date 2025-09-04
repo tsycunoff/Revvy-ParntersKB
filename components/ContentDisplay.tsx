@@ -70,6 +70,16 @@ const ContentDisplay: React.FC<{ page: Page | null }> = ({ page }) => {
     );
   }
 
+  // If page has a custom component, render it. Otherwise, render content blocks.
+  if (page.component) {
+    const PageComponent = page.component;
+    return (
+      <div className="flex-1 p-4 sm:p-6 md:p-8 overflow-y-auto h-[calc(100vh_-_4rem)]">
+         <PageComponent />
+      </div>
+    );
+  }
+
   return (
     <div className="flex-1 p-8 md:p-12 overflow-y-auto h-[calc(100vh_-_4rem)]">
       <article key={page.id} className="max-w-none prose prose-slate animate-fade-in-up">
